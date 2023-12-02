@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Document;
 use Illuminate\Http\Request;
 
 class DocumentController extends Controller
@@ -34,7 +35,14 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Document::create([
+            'name'          => $request->name,
+            'description'   => $request->description,
+            'hash'          => $request->description,
+            'path'          => md5($request->name),
+        ]);
+
+        return redirect('/');
     }
 
     /**
