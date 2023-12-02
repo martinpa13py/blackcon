@@ -15,8 +15,7 @@
                 <div class="col-md-4">
                     <h2>{{ $document->name }}</h2>
                     <p>{{ $document->description }}</p>
-                    <a href="#">{{ $document->hash }}</a>
-                    {{-- <a href="{{ route('destroy', $document->id) }}"> Eliminar</a> --}}
+                    <a href="https://blockexplorer.one/?q={{ $document->hash }}" target="_blank">{{ $document->hash }}</a>
                 </div>                
             @endforeach
         </div>
