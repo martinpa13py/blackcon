@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <h2>Registrar Documento</h2>
 
-    <form action="{{ route('store') }}" method="post" enctype="multipart/form-data">
+    <form id="document" action="{{ route('store') }}" method="post" enctype="multipart/form-data">
         @csrf
 
         <!-- Name -->
@@ -38,6 +38,10 @@
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
 </div>
+<script src="{{ asset('js/app.js') }}" defer></script>
+@vite([
+    'resources/js/app.js',
+])
