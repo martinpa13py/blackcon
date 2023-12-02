@@ -41,7 +41,6 @@
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
 </div>
-<script src="{{ asset('js/app.js') }}" defer></script>
 @vite([
     'resources/js/app.js',
 ])

@@ -16,6 +16,7 @@
                     <h2>{{ $document->name }}</h2>
                     <p>{{ $document->description }}</p>
                     <a href="#">{{ $document->hash }}</a>
+                    {{-- <a href="{{ route('destroy', $document->id) }}"> Eliminar</a> --}}
                 </div>                
             @endforeach
         </div>

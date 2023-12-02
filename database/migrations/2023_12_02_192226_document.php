@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('hash');
             $table->string('path');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

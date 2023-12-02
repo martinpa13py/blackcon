@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Document;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
@@ -37,11 +39,14 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
+
+      Storage::disk('local')->put($request->file->getClientOriginalName(), 'Contents');
+        
         Document::create([
             'name'          => $request->name,
             'description'   => $request->description,
-            'hash'          => 'khsdasdyasd829113',
-            'path'          => md5($request->name),
+            'hash'          => md5(Carbon::now()),
+            'path'          =>  $request->file->getClientOriginalName(),
         ]);
 
         return redirect('/');
@@ -89,6 +94,8 @@ class DocumentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Document::find($id)->delete();
+
+        return redirect('/');
     }
 }
