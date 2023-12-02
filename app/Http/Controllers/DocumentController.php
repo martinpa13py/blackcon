@@ -14,7 +14,9 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $documents = Document::all();
+
+        return view('index', compact('documents'));
     }
 
     /**
@@ -38,7 +40,7 @@ class DocumentController extends Controller
         Document::create([
             'name'          => $request->name,
             'description'   => $request->description,
-            'hash'          => $request->description,
+            'hash'          => 'khsdasdyasd829113',
             'path'          => md5($request->name),
         ]);
 

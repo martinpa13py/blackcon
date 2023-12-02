@@ -11,18 +11,13 @@
 <div class="feature">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <h2>Feature 1</h2>
-                <p>A brief description of the first feature.</p>
-            </div>
-            <div class="col-md-4">
-                <h2>Feature 2</h2>
-                <p>A brief description of the second feature.</p>
-            </div>
-            <div class="col-md-4">
-                <h2>Feature 3</h2>
-                <p>A brief description of the third feature.</p>
-            </div>
+            @foreach ($documents as $document)
+                <div class="col-md-4">
+                    <h2>{{ $document->name }}</h2>
+                    <p>{{ $document->description }}</p>
+                    <a href="#">{{ $document->hash }}</a>
+                </div>                
+            @endforeach
         </div>
     </div>
 </div>
